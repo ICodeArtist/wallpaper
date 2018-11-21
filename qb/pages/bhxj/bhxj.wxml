@@ -1,0 +1,29 @@
+<view class="top-box flex flex-vc flex-hc">
+    <camera binderror="error" devicePosition="back" flash="auto" mode="normal" style="margin-top:{{yidong}}rpx; width:750rpx; height:750rpx;position: relative;">
+        <cover-view style="width:100%; height:100%;position: absolute;display: {{showView?'none':'block'}};">
+            <cover-image src="{{shoujiBihua}}" style="width:100%; height:100%;"></cover-image>
+        </cover-view>
+        <cover-view style="width:100%; height:100%; position: absolute;">
+            <cover-image src="{{qianDa}}"></cover-image>
+        </cover-view>
+    </camera>
+</view>
+<view class="canvas-box" style="padding-bottom:150px;padding: 20px;">
+    <canvas canvasId="mycanvas" style="width: 1200px; height: 1200px;"></canvas>
+</view>
+<view class="bottom ">
+    <view class="sticker-lists-body" wx:if="{{XS!=0}}">
+        <scroll-view class="recommend_scroll_x_box" scrollX="true">
+            <view bindtap="changeImg" class="sticker-list" data-url="{{item}}" wx:for="{{numbar}}" wx:key="key">
+                <image src="{{imgUrl}}{{item}}{{thumb}}"></image>
+            </view>
+        </scroll-view>
+    </view>
+    <view class="tab ">
+        <button bindtap="xscj" class="color-white" wx:if="{{XS!=3}}">{{xsgj}}</button>
+        <button bindtap="previous" class="color-white">上一页</button>
+        <button bindtap="nextYe" class="color-white">下一页</button>
+        <button bindtap="takePhoto" class="color-white" type="primary">{{gongneng}}</button>
+        <button bindtap="save" class="color-white">生成图片</button>
+    </view>
+</view>

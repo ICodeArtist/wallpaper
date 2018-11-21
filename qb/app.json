@@ -1,0 +1,15 @@
+{
+    "pages": [
+        "pages/welcome/welcome",
+        "pages/chuanlian/chuanlian",
+        "pages/qiangbu/qiangbu",
+        "pages/qbxj/qbxj",
+        "pages/clxj/clxj",
+        "pages/bihua/bihua",
+        "pages/bhxj/bhxj",
+        "pages/huabu/huabu"
+    ],
+    "window": {
+        "navigationBarBackgroundColor": "#405f80"
+    }
+}

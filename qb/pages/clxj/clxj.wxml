@@ -1,0 +1,48 @@
+<view class="bottom ">
+    <view class="tab ">
+        <button bindtap="cjxz" class="color-white">
+            <view class="xuan">场</view>
+            <view class="xuan">景</view>
+            <view class="xuan">选</view>
+            <view class="xuan">择</view>
+        </button>
+        <button bindtap="gbxz" class="color-white">
+            <view class="xuan">关</view>
+            <view class="xuan">闭</view>
+            <view class="xuan">选</view>
+            <view class="xuan">择</view>
+        </button>
+        <button bindtap="takePhoto" class="color-white" type="primary">
+            <view class="xuan">{{gongneng1}}</view>
+            <view class="xuan">{{gongneng2}}</view>
+            <view class="xuan">{{gongneng3}}</view>
+            <view class="xuan">{{gongneng4}}</view>
+        </button>
+        <button bindtap="save" class="color-white">
+            <view class="xuan">生</view>
+            <view class="xuan">成</view>
+            <view class="xuan">图</view>
+            <view class="xuan">片</view>
+        </button>
+    </view>
+    <view class="sticker-lists-body" wx:if="{{xsxz>1}}">
+        <scroll-view class="recommend_scroll_x_box" scrollX="true">
+            <view bindtap="changeImg" class="sticker-list" data-url="{{item}}" wx:for="{{numbar}}" wx:key="key">
+                <image src="{{imgUrl}}{{item}}{{cjxz}}{{fgxz}}.jpg" style="transform:rotate(270deg)"></image>
+            </view>
+        </scroll-view>
+    </view>
+</view>
+<view class="top-box flex flex-vc flex-hc">
+    <camera binderror="error" devicePosition="back" flash="auto" mode="normal" style="margin-top:{{cjgd}}rpx;width:748rpx; height:1000rpx;position: relative;">
+        <cover-view style="width:100%; height:100%;position: absolute;display: {{showView?'none':'block'}};">
+            <cover-image src="{{shoujiBihua}}" style="width:100%; height:100%;"></cover-image>
+        </cover-view>
+        <cover-view class="qianda" style="position: absolute;">
+            <cover-image src="{{qianDa}}" style="width:100%; height:100%;"></cover-image>
+        </cover-view>
+    </camera>
+</view>
+<view class="canvas-box" style="padding-bottom:150px;padding: 20px;">
+    <canvas canvasId="mycanvas" style="width: 900px; height: 1200px;"></canvas>
+</view>

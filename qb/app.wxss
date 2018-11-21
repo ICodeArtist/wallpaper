@@ -1,0 +1,35 @@
+image {
+    width: auto;
+    height: auto;
+}
+
+.xuan {
+    display: inline-block;
+    transform: rotateZ(270deg);
+}
+
+.width-full {
+    height: 100%;
+    width: 100%;
+}
+
+.color-white {
+    color: #fff;
+}
+
+.flex {
+    display: box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}
+
+.flex-hc {
+    -webkit-box-pack: center;
+    justify-content: center;
+}
+
+.flex-vc {
+    -webkit-box-align: center;
+    align-items: center;
+}

@@ -1,0 +1,89 @@
+<view class="bottom ">
+    <view class="tab ">
+        <button bindtap="cjxz" class="color-white">
+            <view class="xuan">{{gongneng1}}</view>
+            <view class="xuan">{{gongneng2}}</view>
+            <view class="xuan">{{gongneng3}}</view>
+            <view class="xuan">{{gongneng4}}</view>
+        </button>
+        <button bindtap="tzdx" class="color-white">
+            <view class="xuan">调</view>
+            <view class="xuan">整</view>
+            <view class="xuan">大</view>
+            <view class="xuan">小</view>
+        </button>
+        <button bindtap="openImg" class="color-white" type="primary">
+            <view class="xuan">更</view>
+            <view class="xuan">换</view>
+            <view class="xuan">墙</view>
+            <view class="xuan">布</view>
+        </button>
+        <button bindtap="save" class="color-white">
+            <view class="xuan">生</view>
+            <view class="xuan">成</view>
+            <view class="xuan">图</view>
+            <view class="xuan">片</view>
+        </button>
+    </view>
+    <view class="taba " wx:if="{{xsxz==5}}">
+        <button bindtap="ktAn" class="color-white anniu">
+            <view class="xuan">客</view>
+            <view class="xuan">餐</view>
+            <view class="xuan">厅</view>
+        </button>
+        <button bindtap="wsAn" class="color-white anniu">
+            <view class="xuan">卧</view>
+            <view class="xuan">室</view>
+        </button>
+    </view>
+    <view style="background-color: #ffffff;height: 30rpx;" wx:if="{{xsxz==2}}">
+        <slider showValue bindchange="dxbs" bindchanging="dxbs" max="300" min="-80"></slider>
+    </view>
+    <view class="taba " wx:if="{{xsxz==5}}">
+        <button bindtap="boAn" class="color-white anniu">
+            <view class="xuan">北</view>
+            <view class="xuan">欧</view>
+        </button>
+        <button bindtap="zsAn" class="color-white anniu">
+            <view class="xuan">中</view>
+            <view class="xuan">式</view>
+        </button>
+        <button bindtap="msAn" class="color-white anniu">
+            <view class="xuan">美</view>
+            <view class="xuan">式</view>
+        </button>
+        <button bindtap="osAn" class="color-white anniu">
+            <view class="xuan">欧</view>
+            <view class="xuan">式</view>
+        </button>
+        <button bindtap="dzhAn" class="color-white anniu">
+            <view class="xuan">地</view>
+            <view class="xuan">中</view>
+            <view class="xuan">海</view>
+        </button>
+        <button bindtap="xdAn" class="color-white anniu">
+            <view class="xuan">现</view>
+            <view class="xuan">代</view>
+        </button>
+    </view>
+    <view class="sticker-lists-body" wx:if="{{xsxz==5}}">
+        <scroll-view class="recommend_scroll_x_box" scrollX="true">
+            <view bindtap="changeImg" class="sticker-list" data-url="{{item}}" wx:for="{{numbar}}" wx:key="key">
+                <image src="{{imgUrl}}{{item}}{{cjxz}}{{fgxz}}.jpg" style="transform:rotate(270deg)"></image>
+            </view>
+        </scroll-view>
+    </view>
+</view>
+<view class="top-box flex flex-vc flex-hc">
+    <view binderror="error" devicePosition="back" flash="auto" mode="normal" style="margin-top:{{cjgd}}rpx;width:748rpx; height:1000rpx;position: relative;">
+        <view class="qianda">
+            <image style="background:url({{shoujiBihua}}) repeat;background-size:{{ViewImgHei}}px {{ViewImgWid}}px;width: 100%;height: 100%;"></image>
+        </view>
+        <view class="qianda">
+            <image src="{{qianDa}}" style="width:100%; height:100%; "></image>
+        </view>
+    </view>
+</view>
+<view class="canvas-box" style="padding-bottom:150px;padding: 20px;">
+    <canvas canvasId="mycanvas" style="width: 1800px; height: 2400px;"></canvas>
+</view>

@@ -1,0 +1,6 @@
+<view class="flex flex-hc flex-vc">
+    <image src="{{path}}" style="height: {{gaodu}}rpx;"></image>
+</view>
+<view style="padding-right: 30rpx;padding-left: 30rpx;">
+    <button bindtap="save" style="margin-top: 50rpx;">保存图片到手机相册</button>
+</view>

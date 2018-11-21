@@ -1,0 +1,29 @@
+<view class="top-box flex flex-vc flex-hc">
+    <movable-area class="img-box width-full" style="margin-top:{{yidong}}rpx;width:750rpx; height:750rpx">
+        <movable-view scale direction="all" scaleMax="4" scaleMin="0.5" scaleValue="1" style="width:{{stv.width}}px; height:{{stv.height}}px;z-index: 20; " x="{{stv.offsetX}}" y="{{stv.offsetY}}">
+            <image class="sticker width-full" src="{{shoujiBihua}}"></image>
+        </movable-view>
+        <movable-view scale direction="all" scaleMax="4" scaleMin="0.5" scaleValue="1" style="width:{{phoneWidth}}px; height:{{phoneWidth}}px; margin: 0 auto;z-index: 30; " x="0" y="0">
+            <image class="sticker width-full" src="{{qianDa}}"></image>
+        </movable-view>
+    </movable-area>
+</view>
+<view class="canvas-box" style="padding-bottom:150px;padding: 20px;">
+    <canvas canvasId="mycanvas" style="width: 1200px; height: 1200px;"></canvas>
+</view>
+<view class="bottom ">
+    <view class="sticker-lists-body" wx:if="{{XS!=0}}">
+        <scroll-view class="recommend_scroll_x_box" scrollX="true">
+            <view bindtap="changeImg" class="sticker-list" data-url="{{item}}" wx:for="{{numbar}}" wx:key="key">
+                <image src="{{imgUrl}}{{item}}{{thumb}}"></image>
+            </view>
+        </scroll-view>
+    </view>
+    <view class="tab ">
+        <button bindtap="xscj" class="color-white" wx:if="{{XS!=3}}">{{xsgj}}</button>
+        <button bindtap="previous" class="color-white">上一页</button>
+        <button bindtap="nextYe" class="color-white">下一页</button>
+        <button bindtap="openImg" class="color-white">更换壁画</button>
+        <button bindtap="save" class="color-white">预览效果</button>
+    </view>
+</view>
