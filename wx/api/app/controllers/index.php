@@ -64,7 +64,19 @@ class indexController extends grace{
 			$this->json("","201","请输入正确的账号密码");
 		}
 	}
-
+	//获取jnum
+	public function getJunm(){
+		$this->db = db('config');
+		$junm = $this->db->where("name=?",array("jnum"))->fetch('val');
+		$this->json($junm);
+	}
+	public function ask(){
+		$this->db = db('ask');
+		$res = $this->db->add($_POST);
+		$res>0?$msg="提交成功":$msg="稍后重试";
+		$this->json("","200",$msg);
+	}
+	//更新用户信息
 	public function upUserInfo($uid,$query){
 		$this->db = db('users');
 		$this->db->where('id=?',array($uid))->update($query);
