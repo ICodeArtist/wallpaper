@@ -132,7 +132,7 @@ Page({
   },
   cancelM: function (e) {
     this.setData({
-      hiddenmodalput: true,
+      hiddenmodalput: true
     })
   },
   confirmM: function (a) {

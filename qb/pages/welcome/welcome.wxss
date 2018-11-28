@@ -64,3 +64,12 @@ button {
     border-radius: 5px;
     text-align: center;
 }
+
+.iinfo{
+  height: 50rpx;
+  width: 300rpx;
+  border: 2rpx solid #48C997;
+  border-radius: 15rpx;
+  margin-top: 10rpx;
+  margin-left: 130rpx;
+}

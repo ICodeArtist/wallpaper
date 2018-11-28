@@ -36,7 +36,7 @@
             <image src="/images/icon/input.jpg" style="width:750rpx;height:300rpx;margin-top:60rpx;position: absolute;"></image>
             <form bindreset="formReset" bindsubmit="formSubmit">
                 <view style="margin:45rpx 150rpx;">
-                    <input autoFocus maxlength="11" name="username" placeholder="请输入账号" type="number"></input>
+                    <input maxlength="11" name="username" placeholder="请输入账号" type="number"></input>
                 </view>
                 <view style="margin:115rpx 150rpx;">
                     <input password maxlength="11" name="password" placeholder="请输入密码" type="number"></input>
@@ -50,8 +50,8 @@
             </form>
         </view>
     </view>
-    <modal hidden="{{hiddenmodalput}}" title="提交您的信息，我们将派专员联系您" confirm-text="提交" cancel-text="取消" bindcancel="cancelM" bindconfirm="confirmM">
-      <input bindinput='iName' type='text' placeholder="请输入姓名..." auto-focus/>
-      <input bindinput='iPhoneNum' type='number' placeholder="请输入手机号码..." />
+    <modal hidden="{{hiddenmodalput}}" title="提交信息获取账号" confirm-text="提交" cancel-text="取消" bindcancel="cancelM" bindconfirm="confirmM" wx:if="{{stats==1}}">
+      <input class="iinfo" bindinput='iName' type='text' placeholder="请输入姓名"/>
+      <input class="iinfo" bindinput='iPhoneNum' type='number' placeholder="请输入手机号码" />
    </modal>
 </view>
