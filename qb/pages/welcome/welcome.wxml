@@ -44,13 +44,16 @@
                 <view style="margin:75rpx 0rpx;">
                     <button formType="submit" style="background-color:#48C997">登 录</button>
                 </view>
+                <view style="margin-bottom:75rpx;">
+                    <button bindtap="getAccount">试用</button>
+                </view>
                 <view>
-                    <button bindtap="getAccount">获取账号</button>
+                    <button bindtap="copyWx" style='width:200rpx;background-color:#48C997'>联系我们</button>
                 </view>
             </form>
         </view>
     </view>
-    <modal hidden="{{hiddenmodalput}}" title="提交信息获取账号" confirm-text="提交" cancel-text="取消" bindcancel="cancelM" bindconfirm="confirmM" wx:if="{{stats==1}}">
+    <modal hidden="{{hiddenmodalput}}" title="提交信息获取试用" confirm-text="提交" cancel-text="取消" bindcancel="cancelM" bindconfirm="confirmM" wx:if="{{stats==1}}">
       <input class="iinfo" bindinput='iName' type='text' placeholder="请输入姓名"/>
       <input class="iinfo" bindinput='iPhoneNum' type='number' placeholder="请输入手机号码" />
    </modal>

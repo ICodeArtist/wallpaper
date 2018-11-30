@@ -45,6 +45,9 @@ class indexController extends grace{
 			$url='https://api.weixin.qq.com/sns/jscode2session?appid='.$appid.'&secret='.$appsecret.'&js_code='.$code.'&grant_type='.$grant_type;
 			$res = json_decode(file_get_contents($url),true);
 			if($res['openid']){
+				if(time()>strtotime($userinfo['expiredate'])){
+					$this->json("","201","该账号试用期到期");
+				}
 				$query = [];
 				if($userinfo['openid']){
 					//判断绑定的openid是否一致
@@ -67,13 +70,41 @@ class indexController extends grace{
 	//获取jnum
 	public function getJunm(){
 		$this->db = db('config');
-		$junm = $this->db->where("name=?",array("jnum"))->fetch('val');
+		$junm = $this->db->where("name=?",array("jnum"))->fetch('val,link');
 		$this->json($junm);
 	}
 	public function ask(){
-		$this->db = db('ask');
-		$res = $this->db->add($_POST);
-		$res>0?$msg="提交成功":$msg="稍后重试";
+		$code = $_POST['code'];
+		$appid = "wxaad4ab73b7b64f99";
+		$appsecret = "8236cfb62a37c9c9d33534fb91bd61a8";
+		$grant_type = "authorization_code";
+		$url='https://api.weixin.qq.com/sns/jscode2session?appid='.$appid.'&secret='.$appsecret.'&js_code='.$code.'&grant_type='.$grant_type;
+		$res = json_decode(file_get_contents($url),true);
+		if($res['openid']){
+			$this->users = db("users");
+			$userinfo = $this->users->where("openid=?",array($res['openid']))->fetch('id,expiredate');
+			//判断账号是否已经绑定
+			if($userinfo['id']>0){
+				if(time()>strtotime($userinfo['expiredate'])){
+					$msg="该微信号试用期结束";
+				}else{
+					$msg="该微信号已开通,请用账号登录";
+				}
+			}else{
+				$this->db = db('ask');
+				$askq['name'] = $_POST['name'];
+				$askq['phone'] = $_POST['phone'];
+				$this->db->add($askq);
+				$userq['openid'] = $res['openid'];
+				$userq['username'] = $_POST['phone'];
+				$userq['password'] = md5(123456);
+				$userq['expiredate'] = date('Y-m-d H:i:s',time()+259200);
+				$this->users->add($userq);
+				$msg="欢迎！试用期为3天;账号为".$_POST['phone'].";密码是123456";
+			}
+		}else{
+			$msg="稍后重试";
+		}
 		$this->json("","200",$msg);
 	}
 	//更新用户信息

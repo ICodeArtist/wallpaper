@@ -2,6 +2,7 @@ import NumberAnimate from "../../js/NumberAnimate.js";
 Page({
   data: {
     hiddenmodalput:true,
+    link:"",
     name: "",
     phone: "",
     uid: 0,
@@ -21,6 +22,7 @@ Page({
       },
       success: function(r){
        let num1 = r.data.data.val;
+       console.log(r);
        let n1 = new NumberAnimate({
           from: num1, //开始时的数字
           speed: 2000, // 总时间
@@ -28,7 +30,8 @@ Page({
           decimals: 0, //小数点后的位数
           onUpdate: () => { //更新回调函数    
             _this.setData({
-              jnum: n1.tempValue
+              jnum: n1.tempValue,
+              link: r.data.data.link
             });
           }
         });
@@ -152,25 +155,31 @@ Page({
   },
   postASK: function(a,b){
     var _this = this;
-    wx.request({
-      url: "https://wx.orianna.top/api/index/ask",
-      method: "POST",
-      header: {
-        "content-type": "application/x-www-form-urlencoded"
-      },
-      data:{name:a,phone:b},
-      success: function (r) {
-        var res = r.data;
-        wx.showModal({
-          title: "提示",
-          content: res.msg,
-          showCancel: !1
-        });
-        _this.setData({
-          hiddenmodalput:true
+    wx.login({
+      success: function(res){
+        let code = res.code;
+        wx.request({
+          url: "https://wx.orianna.top/api/index/ask",
+          method: "POST",
+          header: {
+            "content-type": "application/x-www-form-urlencoded"
+          },
+          data: { name: a, phone: b, code: code},
+          success: function (r) {
+            var res = r.data;
+            wx.showModal({
+              title: "提示",
+              content: res.msg,
+              showCancel: !1
+            });
+            _this.setData({
+              hiddenmodalput: true
+            })
+          }
         })
       }
     })
+    
   },
   ulogin: function(a) {
     var _this = this;
@@ -216,8 +225,9 @@ Page({
     })
   },
   copyWx: function(a) {
+    var _this = this;
     wx.setClipboardData({
-      data: "raxsg1990",
+      data: _this.data.link,
       success: function(a) {
         wx.getClipboardData({
           success: function(a) {
