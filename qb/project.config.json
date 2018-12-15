@@ -13,7 +13,7 @@
 		"uglifyFileName": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.4.0",
+	"libVersion": "2.4.2",
 	"appid": "wxaad4ab73b7b64f99",
 	"projectname": "wp",
 	"debugOptions": {

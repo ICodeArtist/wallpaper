@@ -33,3 +33,4 @@ image {
     -webkit-box-align: center;
     align-items: center;
 }
+@import "./graceUI/graceUI.wxss";

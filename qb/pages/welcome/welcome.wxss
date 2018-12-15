@@ -68,8 +68,8 @@ button {
 .iinfo{
   height: 50rpx;
   width: 300rpx;
-  border: 2rpx solid #48C997;
-  border-radius: 15rpx;
+  border-bottom: 1rpx solid #48C997;
+  /* border-radius: 15rpx; */
   margin-top: 10rpx;
   margin-left: 130rpx;
 }

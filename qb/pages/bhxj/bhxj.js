@@ -75,6 +75,7 @@ Page({
         var a = this;
         wx.chooseImage({
             count: 1,
+          sizeType: ["compressed"],
             sourceType: [ "album" ],
             success: function(t) {
                 var e = t.tempFilePaths[0];

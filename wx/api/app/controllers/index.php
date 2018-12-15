@@ -70,7 +70,9 @@ class indexController extends grace{
 	//获取jnum
 	public function getJunm(){
 		$this->db = db('config');
+		$this->users = db('users');
 		$junm = $this->db->where("name=?",array("jnum"))->fetch('val,link');
+		$junm['val'] = $junm['val'] + $this->users->count();
 		$this->json($junm);
 	}
 	public function ask(){

@@ -1,4 +1,7 @@
 {
     "navigationBarBackgroundColor": "#48C997",
-    "navigationBarTitleText": "壁画墙布窗帘"
+    "navigationBarTitleText": "壁画墙布窗帘",
+    "usingComponents": {
+      "graceSwiper": "../../graceUI/components/graceSwiper"
+    }
 }

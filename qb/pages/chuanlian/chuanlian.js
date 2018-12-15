@@ -4,6 +4,7 @@ Page({
         phoneHeight: 4 * wx.getSystemInfoSync().windowWidth / 3,
         ViewImgHei: 101,
         ViewImgWid: 101,
+        imgb64: "",
         sfdx: 0,
         cjgd: 120,
         imgUrl: "cloud://room2-9fd8fd.726f-room2-9fd8fd/clmb/",
@@ -43,17 +44,18 @@ Page({
         var a = this;
         wx.chooseImage({
             count: 1,
-            sizeType: [ "original" ],
+          sizeType: ["compressed"],
             sourceType: [ "album", "camera" ],
             success: function(t) {
-                var n = t.tempFilePaths[0];
+              var n = t.tempFilePaths[0], s = "data:image/jpg;base64," + wx.getFileSystemManager().readFileSync(n, "base64");
                 wx.getImageInfo({
                     src: n,
                     success: function(t) {
                         var i = a.data.ViewImgWid * t.width / t.height;
                         a.setData({
                             ViewImgHei: i,
-                            shoujiBihua: n
+                            shoujiBihua: n,
+                            imgb64: s
                         });
                     }
                 });
@@ -61,14 +63,14 @@ Page({
         });
     },
     setSticker: function(t) {
-        var a = 1800 / this.data.phoneWidth, n = this.data.shoujiBihua, i = this.data.ViewImgHei * a, s = this.data.ViewImgWid * a;
-        t.translate(0, 2400), t.rotate(270 * Math.PI / 180);
-        for (var e = 0; s * e < 1800; e++) for (var o = 0; i * o < 2400; o++) t.drawImage(n, i * o, s * e, i, s);
+        var a = 900 / this.data.phoneWidth, n = this.data.shoujiBihua, i = this.data.ViewImgHei * a, s = this.data.ViewImgWid * a;
+        t.translate(0, 1200), t.rotate(270 * Math.PI / 180);
+        for (var e = 0; s * e < 900; e++) for (var o = 0; i * o < 1200; o++) t.drawImage(n, i * o, s * e, i, s);
         t.save(), t.restore(), t.stroke();
     },
     createNewImg: function() {
         var t = this, a = this.data.shoujiBihua, n = this.data.qianDa, i = wx.createCanvasContext("mycanvas");
-        a && this.setSticker(i), i.drawImage(n, 0, 0, 2400, 1800), i.draw(), setTimeout(function() {
+        a && this.setSticker(i), i.drawImage(n, 0, 0, 1200, 900), i.draw(), setTimeout(function() {
             wx.canvasToTempFilePath({
                 canvasId: "mycanvas",
                 success: function(a) {
@@ -105,7 +107,7 @@ Page({
             cjgd: 120
         }) : this.setData({
             xsxz: 2,
-            cjgd: 180,
+            cjgd: 200,
             gongneng1: "场",
             gongneng2: "景",
             gongneng3: "选",
@@ -196,8 +198,10 @@ Page({
     },
     onReady: function() {
         var t = this;
+        var a = "data:image/jpg;base64," + wx.getFileSystemManager().readFileSync("/images/icon/q.jpg", "base64");
         this.downLoadqImg("cloud://room2-9fd8fd.726f-room2-9fd8fd/clmb/0cktbo.png"), this.setData({
-            numbar: 9
+            numbar: 9,
+            imgb64: a,
         });
         //  wx.cloud.downloadFile({
         //     fileID: "cloud://room2-9fd8fd.726f-room2-9fd8fd/q.jpg",

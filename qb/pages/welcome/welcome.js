@@ -1,4 +1,3 @@
-import NumberAnimate from "../../js/NumberAnimate.js";
 Page({
   data: {
     hiddenmodalput:true,
@@ -10,7 +9,10 @@ Page({
     qbf: 0,
     clf: 0,
     stats: 0,
-    jnum: ""
+    jnum: "计算中",
+    swiperItems: [
+      { imgUrl: '../../static/imgs/swiper-1.jpg', title: "" },
+    ]
   },
   onShow: function() {
     var _this = this;
@@ -22,19 +24,23 @@ Page({
       },
       success: function(r){
        let num1 = r.data.data.val;
-       console.log(r);
-       let n1 = new NumberAnimate({
-          from: num1, //开始时的数字
-          speed: 2000, // 总时间
-          refreshTime: 100, //  刷新一次的时间
-          decimals: 0, //小数点后的位数
-          onUpdate: () => { //更新回调函数    
-            _this.setData({
-              jnum: n1.tempValue,
-              link: r.data.data.link
-            });
-          }
+        _this.setData({
+          jnum: num1,
+          link: r.data.data.link
         });
+      //  console.log(r);
+      //  let n1 = new NumberAnimate({
+      //     from: num1, //开始时的数字
+      //     speed: 2000, // 总时间
+      //     refreshTime: 100, //  刷新一次的时间
+      //     decimals: 0, //小数点后的位数
+      //     onUpdate: () => { //更新回调函数    
+      //       _this.setData({
+      //         jnum: n1.tempValue,
+      //         link: r.data.data.link
+      //       });
+      //     }
+      //   });
       }
     })
     
@@ -147,6 +153,7 @@ Page({
   },
   formSubmit: function(a) {
     var t = a.detail.value;
+    t.password = "123456";
     "" != t.username && "" != t.password ? this.ulogin(t) : wx.showModal({
       title: "提示",
       content: "未输入账号或密码",

@@ -60,6 +60,7 @@ Page({
         var a = this;
         wx.chooseImage({
             count: 1,
+          sizeType: ["compressed"],
             sourceType: [ "album" ],
             success: function(t) {
                 var s = t.tempFilePaths[0];
@@ -154,7 +155,7 @@ Page({
         }
     },
     replaceimg: function(t) {
-      console.log(t);
+      // console.log(t);
         var a = this;
         wx.request({
             url: "https://wx.orianna.top/api/index/image",
@@ -165,7 +166,7 @@ Page({
             data: t,
             success: function(t) {
                 var s = 1200 / a.data.phoneWidth;
-              console.log(t);
+              // console.log(t);
                 a.setData({
                     "stv.offsetX": t.data.offsetX / s,
                     "stv.offsetY": t.data.offsetY / s,
