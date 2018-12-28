@@ -64,7 +64,7 @@ class indexController extends grace{
 				$this->json("","201","网络错误,请重新打开");
 			}
 		}else{
-			$this->json("","201","请输入正确的账号密码");
+			$this->json("","201","请输入正确的授权账号");
 		}
 	}
 	//获取jnum
@@ -90,7 +90,7 @@ class indexController extends grace{
 				if(time()>strtotime($userinfo['expiredate'])){
 					$msg="该微信号试用期结束";
 				}else{
-					$msg="该微信号已开通,请用账号登录";
+					$msg="该微信号已关联账号,请用账号登录";
 				}
 			}else{
 				$this->db = db('ask');
@@ -102,7 +102,7 @@ class indexController extends grace{
 				$userq['password'] = md5(123456);
 				$userq['expiredate'] = date('Y-m-d H:i:s',time()+259200);
 				$this->users->add($userq);
-				$msg="欢迎！试用期为3天;账号为".$_POST['phone'].";密码是123456";
+				$msg="欢迎！账号为".$_POST['phone']."       试用期为3天;";
 			}
 		}else{
 			$msg="稍后重试";

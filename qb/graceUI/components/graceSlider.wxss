@@ -1,0 +1,19 @@
+/* graceUI/components/graceSlider.wxss */
+.grace-slider{
+	position:relative; 
+	width:100%;
+	display:flex; 
+	flex-direction: row; 
+	justify-content: center; 
+	align-items: center;
+}
+.grace-slider-line{
+	width:20%;
+	height:2px;
+	background:#900;
+	position:absolute;
+	top:ecal(50% - 1px);
+	left:40%;
+	z-index: -1;
+}
+.grace-sliders{width:50%;}

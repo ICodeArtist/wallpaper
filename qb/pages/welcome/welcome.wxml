@@ -34,14 +34,14 @@
       <image src="/images/icon/logo.png" style="width:250rpx;height:250rpx;margin-top:20rpx;margin-left:250rpx;"></image>
     </view>
     <view style="width:750rpx;height:400rpx;background-color:#ffffff;position: relative;">
-      <image src="/images/icon/input.jpg" style="width:750rpx;height:300rpx;margin-top:60rpx;position: absolute;"></image>
+      <!-- <image src="/images/icon/input.jpg" style="width:750rpx;height:300rpx;margin-top:60rpx;position: absolute;"></image> -->
       <form bindreset="formReset" bindsubmit="formSubmit">
         <view style="margin:45rpx 150rpx;">
           <input maxlength="11" name="username" placeholder="请输入账号" type="number"></input>
         </view>
-        <view style="margin:115rpx 150rpx;">
+        <!-- <view style="margin:115rpx 150rpx;">
           <input password maxlength="11" name="password" placeholder="请输入密码" type="number"></input>
-        </view>
+        </view> -->
         <view style="margin:75rpx 0rpx;">
           <button formType="submit" style="background-color:#48C997">登 录</button>
         </view>

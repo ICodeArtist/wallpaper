@@ -8,7 +8,7 @@ Page({
         sfdx: 0,
         cjgd: 120,
         imgUrl: "cloud://room2-9fd8fd.726f-room2-9fd8fd/clmb/",
-        shoujiBihua: "/images/icon/bihua.jpg",
+      shoujiBihua: "/images/icon/q.jpg",
         showView: !0,
         gongneng1: "场",
         gongneng2: "景",

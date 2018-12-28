@@ -4,9 +4,9 @@ return array(
 	'db'                 => array(
     	'host'           =>    '127.0.0.1',
     	'port'           =>    '3306',
-		'user'           =>    'wx_orianna',
-		'pwd'            =>    'EX6k5kh345SKcibi',
-		'dbname'         =>    'wx_orianna',
+		'user'           =>    'wx_orianna_top',
+		'pwd'            =>    'bdiGK7kZJHxZPxKF',
+		'dbname'         =>    'wx_orianna_top',
 		'charset'        =>    'utf8',
 		'pre'            =>    'lct_'
 	),
