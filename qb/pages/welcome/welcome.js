@@ -17,7 +17,7 @@ Page({
   onShow: function() {
     var _this = this;
     wx.request({
-      url: "https://wx.orianna.top/api/index/getJunm",
+      url: "https://www.wxori.top/api/index/getJunm",
       method: "POST",
       header: {
         "content-type": "application/x-www-form-urlencoded"
@@ -166,7 +166,7 @@ Page({
       success: function(res){
         let code = res.code;
         wx.request({
-          url: "https://wx.orianna.top/api/index/ask",
+          url: "https://www.wxori.top/api/index/ask",
           method: "POST",
           header: {
             "content-type": "application/x-www-form-urlencoded"
@@ -194,7 +194,7 @@ Page({
       success: function(res) {
         a.code = res.code;
         wx.request({
-          url: "https://wx.orianna.top/api/index/login",
+          url: "https://www.wxori.top/api/index/login",
           method: "POST",
           header: {
             "content-type": "application/x-www-form-urlencoded"

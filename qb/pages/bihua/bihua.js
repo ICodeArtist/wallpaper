@@ -158,7 +158,7 @@ Page({
       // console.log(t);
         var a = this;
         wx.request({
-            url: "https://wx.orianna.top/api/index/image",
+          url: "https://www.wxori.top/api/index/image",
             method: "POST",
             header: {
                 "content-type": "application/x-www-form-urlencoded"
