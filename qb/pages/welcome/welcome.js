@@ -12,7 +12,8 @@ Page({
     jnum: "计算中",
     swiperItems: [
       { imgUrl: '../../static/imgs/swiper-1.jpg', title: "" },
-    ]
+    ],
+    surplus:'请登录'
   },
   onShow: function() {
     var _this = this;
@@ -216,7 +217,8 @@ Page({
                 qbf: res.data.qbf,
                 clf: res.data.clf,
                 stats: 0,
-                uid: res.data.id
+                uid: res.data.id,
+                surplus: res.data.expiredate
               })
             }
           }
